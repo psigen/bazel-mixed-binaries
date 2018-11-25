@@ -1,15 +1,16 @@
 # Mixed Python/Shell Bazel Example
 
-In this repo, we have a python binary target that counts the number of instances of some string and returns the count. This is the `//pylib:counter` target. Assume this is an upstream package that produces many binary tools for various
-purposes.
+In this repo, we have a python binary target that counts the number of lines of a file that contain some specified string and returns this count via stdout. This is the `//pylib:counter` target.
 
-Now, I have a second package that contains some data files that I would like to process. For convenience, I would like to create a shell script that will run the python binary tool over several such data files.
+Assume this is an upstream package that produces many binary tools for various purposes.
 
-What is the right way to represent the dependencies between these targets such that bazel will package them appropriately?
+We have a second package `//shbin` that contains some data files that we would like to process. For convenience, we create a shell script that runs the python binary tool over several such data files with the correct arguments.
+
+What is the right way to represent the dependencies between these targets and resolve the `//pybin:counter` target from the `//shbin:run` target such that Bazel will package them appropriately?
 
 ## Examples:
 
-We can call `//pybin:counter` as expected using its own data file.
+We can call `//pybin:counter` as expected using an included data file.
 ```bash
 $ bazel run //pybin:counter "apple" pybin/data.txt
 3
