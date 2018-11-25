@@ -1,0 +1,8 @@
+sh_binary(
+    name = "run",
+    srcs = ["run.sh"],
+    data = ["data.txt"],
+    deps = [
+        # "//pybin:counter"  # This does not work
+    ]
+)

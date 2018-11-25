@@ -1,0 +1,6 @@
+py_binary(
+    name = "counter",
+    srcs = ["counter.py"],
+    data = ["data.txt"],
+    visibility = ["//visibility:public"],
+)
