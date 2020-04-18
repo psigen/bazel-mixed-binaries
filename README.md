@@ -1,5 +1,7 @@
 # Mixed Python/Shell Bazel Example
 
+### [(Answered on StackOverflow)](https://stackoverflow.com/q/53472993/2044807)
+
 In this repo, we have a python binary target that counts the number of lines of a file that contain some specified string and returns this count via stdout. This is the `//pylib:counter` target.
 
 Assume this is an upstream package that produces many binary tools for various purposes.
